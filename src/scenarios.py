@@ -7,8 +7,9 @@ def escenario_borde_superior_caliente():
     Escenario 1:
     - Placa 1m x 1m
     - Bordes izquierdo, derecho e inferior a 0°C
-    - Borde superior a 100°C
+    - Borde superior a 100°C (fijo en el tiempo)
     - Temperatura inicial interior 0°C
+    - Simulación larga para observar la difusión en el tiempo.
     """
     return SimulationConfig(
         nx=41,
@@ -16,8 +17,8 @@ def escenario_borde_superior_caliente():
         Lx=1.0,
         Ly=1.0,
         alpha=1.0e-4,    # valor ejemplo
-        dt=0.1,          # afinar luego con la condición de estabilidad
-        t_final=50.0,
+        dt=0.1,          # consistente con estabilidad
+        t_final=2500.0,  # simulación larga
         T_left=0.0,
         T_right=0.0,
         T_top=100.0,
@@ -40,7 +41,7 @@ def escenario_centro_caliente():
         Ly=1.0,
         alpha=1.0e-4,
         dt=0.1,
-        t_final=50.0,
+        t_final=300.0,
         T_left=0.0,
         T_right=0.0,
         T_top=0.0,
